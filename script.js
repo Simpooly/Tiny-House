@@ -19,7 +19,7 @@ function getLocation(){
 
 getLocation();*/
 
-/* -----Getting The Map-----*/
+//--------------------------------------------------Getting The Map
 function initMap() {
   var userLocation = {lat: 40.585258, lng: -105.084419};
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -32,12 +32,22 @@ function initMap() {
   });
 }
 
-/*Geocode*/
+//-----------------------------------------------------Geocode/
 
-//call geocode
-geocode();
-function geocode(){
-	var address = '112 North Grant Ave Fort Collins CO'
+
+//get location Form
+var locationForm = document.getElementById('location-form');
+
+//listen for submit event
+locationForm.addEventListener('submit', geocode);
+
+
+
+function geocode(e){
+	//Prevent actual submit
+	e.preventDefault();
+
+	var address = document.getElementById('location-input').value;
 	axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
 		params:{
 			address:address,
@@ -46,7 +56,7 @@ function geocode(){
 	})
 	.then(function(response){
 		//log full responce
-		console.log(response);
+		//console.log(response);
 
 		//formatted address
 		var formattedAddress = response.data.results[0].formatted_address;
@@ -66,11 +76,9 @@ function geocode(){
 				<li class=" list-group-item">Longitude: ${lng}</li>
 			</ul>
 		`;
-		//console.log(location);
 
 
 		//Address Components ( individual part of address)
-
 		var addressComponents = response.data.results[0].address_components;
 		var addressComponentsOutput = '<ul class="list-group">';
 			for( var i = 0; i < addressComponents.length; i++){
