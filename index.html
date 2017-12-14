@@ -10,22 +10,39 @@
 
     <h3>Tiny House Locator</h3>
 
+    <div id="map"></div>
+
     <div id="formatted-address"></div>
     <div id="address-components"></div>
     <div id="geometry"></div>
+    <div id="demo"></div>
 
-    <div id="map"></div>
+
 
     <div class="container">
 		<h2> Enter location Here</h2>
+		<div id="error"></div>
 		<form id="location-form">
+			<label>Title</label>
+			<input type="text" id="title-input" class=" form-control form-control-lg">
+			<br>
+			<p>For Sale By:</p>
+			<label>Buisness</label>
+			<input id="buisness" type="radio" name="sale" value="buisness">
+			<label>Owner</label>
+			<input id="owner" type="radio" name="sale" value="owner">
+			<br>
+			<br>
+			<label>Address/ Location</label>
 			<input type="text" id="location-input" class=" form-control form-control-lg">
 			<br>
-			<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			<button type="submit" class="btn btn-primary btn-block" onclick="is_checked()">Submit</button>
 		</form>
     </div>
 
-    <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+    <!-- <script type="text/javascript" src="script2.js"></script> -->
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMZtcPkh9C9NldNVJVht18Lai1L9VqD0&callback=initMap">
     </script>

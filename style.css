@@ -34,7 +34,7 @@ blockquote:before, blockquote:after { content:""; }
 h3{ font-size: 3em;}
 
 #map {
- height: 400px;
+ height: 500px;
  width: 70%;
  margin: 50px auto;
 }
